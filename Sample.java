@@ -61,6 +61,27 @@ class Sample{
         }
     }
 
+    //TC:0(n)
+//SC:0(1)
+    class Solution {
+        public int numberOfArithmeticSlices(int[] nums) {
+            if(nums==null || nums.length==0){
+                return 0;
+            }
+            int count=0,n=nums.length;
+            int prev=0;
+            for(int i=2;i<n;i++){
+                if(nums[i-1]-nums[i-2]==nums[i]-nums[i-1]){
+                    prev=1+prev;
+                }else{
+                    prev=0;
+                }
+                count=count+prev;
+            }
+            return count;
+        }
+    }
+
     /*******************PROBLEM-2****************/
     //TC:0(N*M)
 //SC:0(1)
